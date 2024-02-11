@@ -38,12 +38,26 @@ npm install --save-dev prettier
   }
 }
 ```
-
 - Execute `npm run format` to format the project files
 
-3. Add an editor config
+3. Add `.editorconfig` file:
+```
+root = true
 
-Run the development server:
+[*]                                 # all files in this project
+charset = utf-8
+end_of_line = lf                    # for Linux/MacOS (crlf for Windows)
+insert_final_newline = true         # can sometimes cause issues with version control
+trim_trailing_whitespace = true
+
+[*.{js,json,ts,tsx,html,svg}]
+indent_size = 2
+indent_style = space
+max_line_length = 120
+```
+Also install the "Editor Config for VS Code" extension in order for this to work in VS Code.
+
+4. Run the development server:
 
 ```bash
 npm run dev
