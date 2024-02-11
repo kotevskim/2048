@@ -1,3 +1,22 @@
+## Project initialization
+```bacs
+npx create-next-app@latest
+```
+- Would you like to use TypeScript? - Yes
+- Would you like to use ESLint? - Yes
+- Would you like to use Tailwind CSS? - No
+- Would you like to use `/src` directory? - No
+- Would you like to use App Router? - No
+- Would you customize the default import alias? - No
+
+Run the dev server:
+```bash
+npm run dev
+```
+Open http://localhost:3000
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
