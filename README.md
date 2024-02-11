@@ -1,4 +1,5 @@
 ## Project initialization
+1. Create app
 ```bacs
 npx create-next-app@latest
 ```
@@ -8,8 +9,29 @@ npx create-next-app@latest
 - Would you like to use `/src` directory? - No
 - Would you like to use App Router? - No
 - Would you customize the default import alias? - No
+2. Add a code formatter  
+- We will use [Prettier](https://prettier.io/), add it as a dev dependency:
+```bash
+npm install --save-dev prettier
+```
+- Add `.prettierrc` file at the root of the project:
+```json
+{
+    "tabWidth": 2
+}
+```
+- Declare a format command in `package.json`, as part of the scripts object:
+```json
+{
+  "scripts": {
+    "format": "prettier --write ."
+  }
+}
+```
+- 
+3. Add an editor config
 
-Run the dev server:
+Run the development server:
 ```bash
 npm run dev
 ```
