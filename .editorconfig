@@ -1,12 +1,12 @@
 root = true
 
-[*]                                 # all files in this project 
-charset = utf-8 
+[*]                                 # all files in this project
+charset = utf-8
 end_of_line = lf                    # for Linux/MacOS (crlf for Windows)
 insert_final_newline = true         # can sometimes cause issues with version control
 trim_trailing_whitespace = true
 
-[*.{js,json,ts,tsx,html,svg}]
+[*.{js,json,ts,tsx,html,svg,css}]
 indent_size = 2
 indent_style = space
 max_line_length = 120
