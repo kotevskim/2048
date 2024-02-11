@@ -66,6 +66,16 @@ npm run dev
 Open http://localhost:3000
 
 ---
+Project structure explained:
+- `_app.tsx` (file) - Acts as a wrapper for all pages in the application. It allows us to define a custom component that wraps around every page, providing consistent layout, styling and behaviour across entire application.
+The most common use cases are setting global styles, state management providers, or navigation components.
+- `_document.tsx` (file) - Used to customize the base HTML document, that Next.js is going to render on the server side during the initial page load.
+- `public` (directory) - Used for static assests that need to be publicly accessible: images, custom fonts...
+- `styles` (directory) - Used to store the styles of the application: global styles, component styles, the page size, ...
+- `.eslintrc.json` (file) - Used to configure ESLint. It contains the definition of how our code is suppose to be written.
+- `package.json` (file) - Contains all the metadata of the project which includes information, dependencies, scripts and so on.
+- `tsconfig.json` (file) - Typescript configuration file
+---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
