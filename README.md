@@ -1,26 +1,36 @@
 ## Project initialization
+
 1. Create app
+
 ```bacs
 npx create-next-app@latest
 ```
+
 - Would you like to use TypeScript? - Yes
 - Would you like to use ESLint? - Yes
 - Would you like to use Tailwind CSS? - No
 - Would you like to use `/src` directory? - No
 - Would you like to use App Router? - No
 - Would you customize the default import alias? - No
-2. Add a code formatter  
+
+2. Add a code formatter
+
 - We will use [Prettier](https://prettier.io/), add it as a dev dependency:
+
 ```bash
 npm install --save-dev prettier
 ```
+
 - Add `.prettierrc` file at the root of the project:
+
 ```json
 {
-    "tabWidth": 2
+  "tabWidth": 2
 }
 ```
+
 - Declare a format command in `package.json`, as part of the scripts object:
+
 ```json
 {
   "scripts": {
@@ -28,13 +38,17 @@ npm install --save-dev prettier
   }
 }
 ```
+
 - Execute `npm run format` to format the project files
+
 3. Add an editor config
 
 Run the development server:
+
 ```bash
 npm run dev
 ```
+
 Open http://localhost:3000
 
 ---
