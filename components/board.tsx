@@ -38,7 +38,7 @@ export default function Board() {
   useEffect(() => {
     if (intialized.current == false) {
       dispatch({ type: "CreateTile", tile: { position: [1, 1], value: 2 } });
-      dispatch({ type: "CreateTile", tile: { position: [1, 2], value: 2 } });
+      dispatch({ type: "CreateTile", tile: { position: [2, 1], value: 2 } });
       intialized.current = true;
     }
   }, []);
