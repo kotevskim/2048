@@ -28,7 +28,7 @@ npm install --save-dev prettier
   }
 }
 ```
-- 
+- Execute `npm run format` to format the project files
 3. Add an editor config
 
 Run the development server:
