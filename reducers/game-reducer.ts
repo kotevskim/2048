@@ -7,7 +7,12 @@ type State = {
   board: string[][];
   tiles: TileMap;
 };
-type Action = { type: "CreateTile"; tile: Tile } | { type: "MoveUp" } | { type: "MoveDown" };
+type Action =
+  | { type: "CreateTile"; tile: Tile }
+  | { type: "MoveUp" }
+  | { type: "MoveDown" }
+  | { type: "MoveLeft" }
+  | { type: "MoveRight" };
 
 function createBoard() {
   const board: string[][] = [];
@@ -41,17 +46,18 @@ export default function gameReducer(state: State = initialState, action: Action)
     case "MoveUp": {
       const newBoard = createBoard();
       const newTiles: TileMap = {};
-      for (let x = 0; x < tileCountPerDimesion; x++) {
-        let newY = 0;
-        for (let y = 0; y < tileCountPerDimesion; y++) {
-          const tileId = state.board[y][x];
+      for (let column = 0; column < tileCountPerDimesion; column++) {
+        let newRow = 0;
+
+        for (let row = 0; row < tileCountPerDimesion; row++) {
+          const tileId = state.board[row][column]
           if (!isNil(tileId)) {
-            newBoard[newY][x] = tileId;
+            newBoard[newRow][column] = tileId
             newTiles[tileId] = {
               ...state.tiles[tileId],
-              position: [x, newY],
+              position: [column, newRow],
             };
-            newY++;
+            newRow++
           }
         }
       }
@@ -64,17 +70,63 @@ export default function gameReducer(state: State = initialState, action: Action)
     case "MoveDown": {
       const newBoard = createBoard();
       const newTiles: TileMap = {};
-      for (let x = 0; x < tileCountPerDimesion; x++) {
-        let newY = tileCountPerDimesion - 1;
-        for (let y = 0; y < tileCountPerDimesion; y++) {
-          const tileId = state.board[y][x];
+      for (let column = 0; column < tileCountPerDimesion; column++) {
+        let newRow = tileCountPerDimesion - 1;
+        for (let row = 0; row < tileCountPerDimesion; row++) {
+          const tileId = state.board[row][column];
           if (!isNil(tileId)) {
-            newBoard[newY][x] = tileId;
+            newBoard[newRow][column] = tileId;
             newTiles[tileId] = {
               ...state.tiles[tileId],
-              position: [x, newY],
+              position: [column, newRow],
             };
-            newY--;
+            newRow--;
+          }
+        }
+      }
+      return {
+        ...state,
+        board: newBoard,
+        tiles: newTiles,
+      };
+    }
+    case "MoveLeft": {
+      const newBoard = createBoard();
+      const newTiles: TileMap = {};
+      for (let row = 0; row < tileCountPerDimesion; row++) {
+        let newColumn = 0;
+        for (let column = 0; column < tileCountPerDimesion; column++) {
+          const tileId = state.board[row][column];
+          if (!isNil(tileId)) {
+            newBoard[row][newColumn] = tileId;
+            newTiles[tileId] = {
+              ...state.tiles[tileId],
+              position: [newColumn, row],
+            };
+            newColumn++;
+          }
+        }
+      }
+      return {
+        ...state,
+        board: newBoard,
+        tiles: newTiles,
+      };
+    }
+    case "MoveRight": {
+      const newBoard = createBoard();
+      const newTiles: TileMap = {};
+      for (let row = 0; row < tileCountPerDimesion; row++) {
+        let newColumn = tileCountPerDimesion - 1;
+        for (let column = 0; column < tileCountPerDimesion; column++) {
+          const tileId = state.board[row][column];
+          if (!isNil(tileId)) {
+            newBoard[row][newColumn] = tileId;
+            newTiles[tileId] = {
+              ...state.tiles[tileId],
+              position: [newColumn, row],
+            };
+            newColumn--;
           }
         }
       }

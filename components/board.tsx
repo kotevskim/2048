@@ -17,6 +17,12 @@ export default function Board() {
       case "ArrowDown":
         dispatch({ type: "MoveDown" });
         break;
+      case "ArrowLeft":
+        dispatch({ type: "MoveLeft" });
+        break;
+      case "ArrowRight":
+        dispatch({ type: "MoveRight" });
+        break;
     }
   };
 
@@ -31,8 +37,8 @@ export default function Board() {
 
   useEffect(() => {
     if (intialized.current == false) {
-      dispatch({ type: "CreateTile", tile: { position: [0, 1], value: 2 } });
-      dispatch({ type: "CreateTile", tile: { position: [0, 2], value: 2 } });
+      dispatch({ type: "CreateTile", tile: { position: [1, 1], value: 2 } });
+      dispatch({ type: "CreateTile", tile: { position: [1, 2], value: 2 } });
       intialized.current = true;
     }
   }, []);
