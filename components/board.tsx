@@ -6,7 +6,7 @@ import { Tile as TileModel } from "@/models/tile";
 
 export default function Board() {
   const [gameState, dispatch] = useReducer(gameReducer, initialState);
-  const intialized = useRef(false);
+  const initialized = useRef(false);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     e.preventDefault(); // so that the keyboard arrows don't scroll the page
@@ -36,11 +36,11 @@ export default function Board() {
   };
 
   useEffect(() => {
-    if (intialized.current == false) {
+    if (initialized.current == false) {
       dispatch({ type: "CreateTile", tile: { position: [1, 1], value: 2 } });
       dispatch({ type: "CreateTile", tile: { position: [1, 2], value: 2 } });
       dispatch({ type: "CreateTile", tile: { position: [1, 3], value: 4 } });
-      intialized.current = true;
+      initialized.current = true;
     }
   }, []);
 
